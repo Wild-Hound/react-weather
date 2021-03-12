@@ -1,0 +1,24 @@
+https://api.openweathermap.org/data/2.5/onecall?lat=23.8103&lon=90.4125&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a
+------------------------------------------------------------------------
+search bar with lat lon for temp solution
+
+*current weather
+  *disc:haze(ex)
+  *temp
+  *feels like
+  *wind deg & speed
+  *humidity
+*hourly weather(6hs) (will look like vertical timeline)
+  *disc:haze(ex)
+  *temp
+  *feels like
+  *humidity
+*daily weather (will be horizantal card timeline)
+  *disc:haze(ex)
+  *temp
+    *morn & feels like
+    *day & feels like
+    *eve & feels like
+    *night & feels like
+    *max&min
+  *wind deg & speed

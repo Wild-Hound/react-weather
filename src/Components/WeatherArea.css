@@ -1,0 +1,46 @@
+.dailyArea {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 50px 0;
+}
+.dailyItem {
+  padding: 10px 20px;
+  border: 1px solid;
+}
+.dailyHeading :is(h3, h4) {
+  margin: 0;
+  text-align: start;
+}
+.dailyHeading > h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.dailyHeading > h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+.dailyLists {
+  text-align: start;
+  font-size: 18px;
+  font-weight: 500;
+}
+.dailyLists > li {
+  margin-bottom: 10px;
+}
+.min-max {
+  display: block;
+  margin-top: 10px;
+  padding-top: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 !important;
+}
+.min {
+  color: green;
+}
+.max {
+  color: red;
+}
