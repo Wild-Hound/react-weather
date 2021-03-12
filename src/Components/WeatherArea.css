@@ -9,7 +9,7 @@
   padding: 10px 20px;
   border: 1px solid;
 }
-.dailyHeading :is(h3, h4) {
+.dailyHeading :is(h1, h3, h4) {
   margin: 0;
   text-align: start;
 }

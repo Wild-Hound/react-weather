@@ -22,3 +22,17 @@ search bar with lat lon for temp solution
     *night & feels like
     *max&min
   *wind deg & speed
+
+
+
+let temp_days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+let days = []
+let x = new Date()
+let y = []
+for(let i = 1; i <= 8; i++){
+y.push(x.getDay())
+x.setDate(x.getDate() + 1)
+}
+y.map((day) =>{
+days.push(temp_days[day])
+})

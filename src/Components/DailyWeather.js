@@ -6,6 +6,7 @@ function DailyWeather(props) {
     return (
         <div className='dailyItem'>
             <div className='dailyHeading'>
+                <h1>{props.dayName}</h1>
                 <h3>{description}</h3>
                 <h4>Humidity: {humidity}%</h4>
             </div>
