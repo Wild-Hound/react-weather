@@ -3,6 +3,7 @@ import CurrentWeather from './CurrentWeather'
 import DailyWeather from './DailyWeather'
 import './WeatherArea.css'
 
+
 function WeatherArea() {
 
     
@@ -41,6 +42,10 @@ function WeatherArea() {
             {weatherData.current ? <CurrentWeather data = {weatherData.current} day={temp_days[(new Date().getDay()-1)]}></CurrentWeather>: null}
             <div className="dailyArea">
                 {weatherData.current ? weatherData.daily.map((day, index) =><DailyWeather data = {day} dayName={days[index]} key={day.dt}></DailyWeather>) : null}
+            </div>
+            
+            <div>
+                
             </div>
             
         </>

@@ -1,0 +1,18 @@
+.cardFront,
+.cardBack {
+  height: 350px !important;
+  width: 250px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #08375a,
+    #04577d,
+    #007a9f,
+    #0a9fbe
+  ) !important;
+  color: white !important;
+  border-radius: 5px;
+}
