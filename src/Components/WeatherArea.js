@@ -11,7 +11,7 @@ function WeatherArea() {
     const [weatherData, setWeatherData] = useState({})
     const [days, setDays] = useState([])
     let temp_days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-
+// 'https://api.openweathermap.org/data/2.5/onecall?lat=23.8103&lon=90.4125&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a'
     useEffect(() => {
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat=23.8103&lon=90.4125&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a')
         .then(res => res.json())
@@ -36,10 +36,10 @@ function WeatherArea() {
         setDays(return_days)
     }
 
-
     return (
         <>
-            {weatherData.current ? <CurrentWeather data = {weatherData.current} day={temp_days[(new Date().getDay()-1)]}></CurrentWeather>: null}
+            {weatherData.current ? <CurrentWeather data = {weatherData.current} day={temp_days[(new Date().getDay()-1)]}
+            hourly={weatherData.hourly}></CurrentWeather>: null}
             <div className="dailyArea">
                 {weatherData.current ? weatherData.daily.map((day, index) =><DailyWeather data = {day} dayName={days[index]} key={day.dt}></DailyWeather>) : null}
             </div>

@@ -5,14 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    to right top,
-    #051937,
-    #08375a,
-    #04577d,
-    #007a9f,
-    #0a9fbe
-  ) !important;
-  color: white !important;
+  background: #363946 !important;
+  color: #93acc6 !important;
   border-radius: 5px;
 }
