@@ -9,11 +9,6 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 function CurrentWeather(props) {
     const {feels_like,weather,temp,humidity,wind_speed} = props.data
-    console.log(props.hourly.forEach((hour, index) =>{
-        if(index <= 5){
-            console.log(hour)
-        }
-    }))
     
     return (
         <div className='curTopDiv'>
