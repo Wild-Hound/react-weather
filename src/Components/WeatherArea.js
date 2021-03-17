@@ -13,20 +13,29 @@ function WeatherArea() {
     const [days, setDays] = useState([])
     const [cityApi, setCityApi] = useState("http://api.openweathermap.org/geo/1.0/direct?q=dhaka&appid=c7d09563711de4f6fd1d655b621ea88a")
     const [weatherApi, setWeatherApi] = useState("")
+    const [noResFound, setNoResFound] = useState(false)
+    const [citysuggestion, setCitySuggestion] = useState({})
     let temp_days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
 
     useEffect(() => {
-        fetch(cityApi)
-        .then(res => res.json())
-        .then(data => {
-            let cityUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a`
-            setWeatherApi(cityUrl)
+            fetch(cityApi)
+            .then(res => res.json())
+            .then(data => {
+
+                if(data[0]?.lat && data[0]?.lon){
+                    let cityUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a`
+                setWeatherApi(cityUrl)
+                setNoResFound(false)
+                }else{
+                    let cityUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=23.7104&lon=90.4074&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a'
+                setWeatherApi(cityUrl)
+                setNoResFound(true)
+                }
+                
         })
     }, [cityApi])
 
-
-    // 'https://api.openweathermap.org/data/2.5/onecall?lat=23.7104&lon=90.4074&exclude=minutely&units=metric&appid=c7d09563711de4f6fd1d655b621ea88a'
     useEffect(() => {
         fetch(weatherApi)
         .then(res => res.json())
@@ -58,9 +67,23 @@ function WeatherArea() {
         setCityApi(cityUrl)
     }
 
+    const suggestCity = () => {
+        // http://autocomplete.travelpayouts.com/places2?term=dhaka&locale=en&types[]=city
+        let val = document.getElementById("cityName").value
+        let suggestion = []
+        if(val.length > 3){
+            fetch(`http://autocomplete.travelpayouts.com/places2?term=${val}&locale=en&types[]=city`)
+            .then(res => res.json())
+            .then(data => {
+                data?.forEach((cityName) => {suggestion.push(cityName?.name)})
+            })
+
+        }
+    }
+
     return (
         <>
-            <SearchBar func={performSearch}></SearchBar>
+            <SearchBar func={performSearch} noResFound = {noResFound} btnUpfunc={suggestCity} suggestion={citysuggestion}></SearchBar>
             {weatherData.current ? <CurrentWeather data = {weatherData.current} day={temp_days[(new Date().getDay()-1)]}
             hourly={weatherData.hourly}></CurrentWeather>: null}
             <div className="dailyArea">
