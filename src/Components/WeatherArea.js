@@ -14,7 +14,7 @@ function WeatherArea() {
     const [cityApi, setCityApi] = useState("http://api.openweathermap.org/geo/1.0/direct?q=dhaka&appid=c7d09563711de4f6fd1d655b621ea88a")
     const [weatherApi, setWeatherApi] = useState("")
     const [noResFound, setNoResFound] = useState(false)
-    const [citysuggestion, setCitySuggestion] = useState({})
+    const [citysuggestion, setCitySuggestion] = useState([])
     let temp_days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
 
@@ -65,25 +65,30 @@ function WeatherArea() {
         cityName = cityName.toLowerCase()
         let cityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=c7d09563711de4f6fd1d655b621ea88a`
         setCityApi(cityUrl)
+        setCitySuggestion([])
     }
 
     const suggestCity = () => {
-        // http://autocomplete.travelpayouts.com/places2?term=dhaka&locale=en&types[]=city
         let val = document.getElementById("cityName").value
-        let suggestion = []
-        if(val.length > 3){
+        if(val.length > 2){
             fetch(`http://autocomplete.travelpayouts.com/places2?term=${val}&locale=en&types[]=city`)
             .then(res => res.json())
-            .then(data => {
-                data?.forEach((cityName) => {suggestion.push(cityName?.name)})
+            .then((data) => {
+                setCitySuggestion(data)
             })
 
         }
     }
 
+    const searchItemAct = (e, cityName) =>{
+        console.log(cityName)
+        document.getElementById("cityName").value = cityName
+    }
+
+
     return (
         <>
-            <SearchBar func={performSearch} noResFound = {noResFound} btnUpfunc={suggestCity} suggestion={citysuggestion}></SearchBar>
+            <SearchBar func={performSearch} noResFound = {noResFound} btnUpfunc={suggestCity} suggestion={citysuggestion} itemAct={searchItemAct}></SearchBar>
             {weatherData.current ? <CurrentWeather data = {weatherData.current} day={temp_days[(new Date().getDay()-1)]}
             hourly={weatherData.hourly}></CurrentWeather>: null}
             <div className="dailyArea">

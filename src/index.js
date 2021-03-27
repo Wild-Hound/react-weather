@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+document.querySelector('body').addEventListener( 'click', e => {
+  e.target.closest("#cityName")?document.querySelector(".searchRes").classList.remove("disNone"):document.querySelector(".searchRes").classList.add("disNone")
+})
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

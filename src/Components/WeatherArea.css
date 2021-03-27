@@ -57,11 +57,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.curWeatherFront{
+.curWeatherFront {
   padding: 0 !important;
 }
-.curTopDiv{
+.curTopDiv {
   display: flex;
   justify-content: center;
   margin: 50px 0;
+}
+.flippy-card.flippy-back {
+  overflow-y: auto;
 }

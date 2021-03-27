@@ -1,0 +1,41 @@
+.searchBar {
+  position: relative;
+}
+.searchRes {
+  padding: 20px 0;
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  background: white;
+  transform: translateX(-50%);
+  min-width: 350px;
+  /* display: none; */
+}
+.searchItem {
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+.searchItem:hover {
+  background: aliceblue;
+}
+
+.disNone {
+  display: none;
+}
+
+#cityName {
+  font-size: 24px;
+  padding: 5px 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+#searchBtn {
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: 1px solid #333;
+  cursor: pointer;
+}

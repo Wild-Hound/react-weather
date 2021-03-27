@@ -1,19 +1,19 @@
 import React from 'react'
+import './searchBar.css'
 
-function SearchBar({func,noResFound,btnUpfunc,suggestion}) {
-
+function SearchBar({func,noResFound,btnUpfunc,suggestion,itemAct}) {
+    
     return (
-        <div>
+        <div className="searchBar">
             <input type="text" placeholder="City Name" id="cityName"onKeyUp={() => btnUpfunc()}/>
             <button id="searchBtn" onClick={() => func()}>Search</button>
-            {/* <ul>
-            {suggestion.city?.map((city, index) =>{
-                console.log(city)
+            <ul className='searchRes'>
+            {suggestion?.map((single, index) =>{
                 return(
-                    <li>{city}</li>
+                    <li className='searchItem' key={index} onClick={(event) => itemAct(event, single.name)}>{single.name}</li>
                 )
             })}
-            </ul> */}
+            </ul>
             {noResFound ? <p className="noRes">No Results Found</p> : null}
         </div>
     )
