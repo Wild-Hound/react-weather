@@ -71,7 +71,7 @@ function WeatherArea() {
     const suggestCity = () => {
         let val = document.getElementById("cityName").value
         if(val.length > 2){
-            fetch(`http://autocomplete.travelpayouts.com/places2?term=${val}&locale=en&types[]=city`)
+            fetch(`https://autocomplete.travelpayouts.com/places2?term=${val}&locale=en&types[]=city`)
             .then(res => res.json())
             .then((data) => {
                 setCitySuggestion(data)
