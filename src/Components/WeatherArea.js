@@ -11,7 +11,7 @@ function WeatherArea() {
 
     const [weatherData, setWeatherData] = useState({})
     const [days, setDays] = useState([])
-    const [cityApi, setCityApi] = useState("http://api.openweathermap.org/geo/1.0/direct?q=dhaka&appid=c7d09563711de4f6fd1d655b621ea88a")
+    const [cityApi, setCityApi] = useState("https://api.openweathermap.org/geo/1.0/direct?q=dhaka&appid=c7d09563711de4f6fd1d655b621ea88a")
     const [weatherApi, setWeatherApi] = useState("")
     const [noResFound, setNoResFound] = useState(false)
     const [citysuggestion, setCitySuggestion] = useState([])
@@ -63,7 +63,7 @@ function WeatherArea() {
     const performSearch = () => {
         let cityName = document.getElementById("cityName").value
         cityName = cityName.toLowerCase()
-        let cityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=c7d09563711de4f6fd1d655b621ea88a`
+        let cityUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=c7d09563711de4f6fd1d655b621ea88a`
         setCityApi(cityUrl)
         setCitySuggestion([])
     }
