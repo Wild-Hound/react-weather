@@ -1,5 +1,5 @@
 ## React Weather App
 
-### Update
+This app uses "openweathermap" API to fetch whether data and "travelpayouts" to get city names
 
-\*Make overall design more pleasing
+#### Live Link: https://peaceful-golick-9f7805.netlify.app/
